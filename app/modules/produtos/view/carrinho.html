@@ -1,0 +1,131 @@
+<div class="container">
+	<div class="row">
+		<div="col-md-12 col-xs-12">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<div class="panel-title">
+						<div class="row">
+							<div class="col-md-6">
+
+								<h4><span class="glyphicon glyphicon-shopping-cart"></span> Carrinho</h4>
+							</div>
+							<div class="col-md-6">
+								<button class="btn btn-primary btn-sm pull-right">
+									<span class="glyphicon glyphicon-share-alt"></span> Continue a comprar
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="panel-body" ng-repeat="(idProduto, produto) in getItensCarrinho()">
+
+					<div class="row">
+						<div class="col-md-2 col-xs-12">
+							<img class="img-responsive" src="app/imagens/produtos/produto.jpg">
+						</div>
+						<div class="col-md-4 col-xs-12">
+							<h4><strong>{{produto.nome}}</strong></h4>
+							<h4><small>{{produto.descricao}}</small></h4>
+						</div>
+						<div class="col-md-6 col-xs-12">
+							<div class="col-md-6 text-right">
+						
+							</div>
+							<div class="col-md-4 col-xs-9">
+								{{produto.qtd}}
+							</div>
+							<div class="col-md-2 col-xs-2">
+								<button class="btn btn-sm btn-danger">
+									<span class="glyphicon glyphicon-trash"></span>
+								</button>
+							</div>
+						</div>
+					</div>
+					<hr>
+
+				</div>
+				<div class="panel-footer">
+					<div class="row">
+						<div class="col-md-9 col-xs-12 text-right">
+							<h4><strong>Total {{getValorTotal() | currency : "R$" : 2}}</strong></h4>
+						</div>
+						<div class="col-md-3 col-xs-12">
+							<button class="btn btn-success btn-lg btn-block" data-toggle="modal" data-target="#modalMissaoResultado">
+								Finalizar Compra
+							</button>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+	</div>
+	</div>
+</div>
+
+<!-- Modal Missao cafe-->
+<div class="modal fade" id="modalMissaoResultado" tabindex="-1" role="dialog" aria-labelledby="modalMissaoResultado">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title" id="modalMissaoCafeLabel">Resultado</h4>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-12">
+						Resultado da compra:
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<br />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						Pães
+					</div>
+					<div class="col-md-6">
+						2 unidades por RS1,78
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						Café
+					</div>
+					<div class="col-md-6">
+						1 unidades por RS2,78
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						Total
+					</div>
+					<div class="col-md-6">
+						R$4,56
+					</div>
+				</div>			
+				<div class="row">
+					<div class="col-md-12">
+						<br />
+					</div>
+				</div>	
+				<div class="row">
+					<div class="col-md-12">
+						Parabéns dos R$35 gastou somente R$4,56. Restaram R$30,44.
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">
+					Reiniciar
+				</button>
+				<a href="app/menuGameplay.html" class="btn btn-primary">Completar</a>
+			</div>
+		</div>
+	</div>
+</div>
